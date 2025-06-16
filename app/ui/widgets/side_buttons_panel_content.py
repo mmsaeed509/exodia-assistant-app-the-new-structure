@@ -15,6 +15,7 @@ from ..tabs.wiki import *
 from ..tabs.news import News
 from ..tabs.tweaks import Tweaks
 from PyQt5.QtCore import Qt
+from ...utils import utils
 
 class ButtonContent:
 

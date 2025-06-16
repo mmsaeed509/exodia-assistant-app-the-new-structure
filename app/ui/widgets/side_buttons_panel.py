@@ -10,7 +10,7 @@
 from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtGui import QPainter, QColor, QRegion, QPolygon, QPen, QFont, QFontDatabase
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout
-from ...utils.utils import *
+from ...utils import utils
 
 class CustomButton(QPushButton):
     def __init__(self, text, points, x, y, width, height, callback, color="#0E1218", border_color="#00B0C8",

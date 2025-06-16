@@ -13,7 +13,7 @@ import threading
 from urllib.request import urlopen, Request
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QScrollArea
 from PyQt5.QtCore import Qt
-import utils
+from ...utils import utils
 
 class News(QWidget):
     def __init__(self, parent=None):
