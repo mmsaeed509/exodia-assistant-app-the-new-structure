@@ -8,10 +8,9 @@
 #####################################
 
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel
-from ...utils.utils import *
 from ...core.role import Role
-from ..keybinding.keybinding import *
-from ..tabs.wiki import *
+from ..keybinding import keybinding
+from ..tabs import wiki
 from ..tabs.news import News
 from ..tabs.tweaks import Tweaks
 from PyQt5.QtCore import Qt
@@ -34,7 +33,7 @@ class ButtonContent:
         # Clear previous buttons
         self.clearButtons()
         # Load and format the HTML content
-        text = utils.loadHTMLContent('./HTML-files', 'displayWelcomeContent.html', self.predator_font.family())
+        text = utils.loadHTMLContent('../../assets/html', 'welcome.html', self.predator_font.family())
 
         # Update the content of the internal window
         self.internal_window.updateContent(text)
@@ -43,7 +42,7 @@ class ButtonContent:
 
         self.clearButtons()  # Clear previous buttons
         # Load and format the HTML content
-        text = utils.loadHTMLContent('./HTML-files', 'displayDevelopersContent.html', self.predator_font.family())
+        text = utils.loadHTMLContent('../../assets/html', 'developers.html', self.predator_font.family())
         # Update the content of the internal window
         self.internal_window.updateContent(text)
 

@@ -11,7 +11,7 @@ exodia-assistant/
 │   ├── fonts/                  # Fonts (was: Fonts/)
 │   ├── html/                   # All HTML (was: HTML-files/)
 │   ├── icons/                  # Icons (was: icons/)
-│   └── images/                 # Tutorial images, keybindings, showcase, etc. (was: imgs/)
+│   └── imgs/                 # Tutorial images, keybindings, showcase, etc. (was: imgs/)
 │
 ├── app/                        # App codebase
 │   ├── core/                   # App logic & services
