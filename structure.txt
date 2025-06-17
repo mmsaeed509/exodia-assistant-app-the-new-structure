@@ -6,7 +6,6 @@
 │   │   │   ├── roles_utils.cpython-313.pyc
 │   │   │   └── settings.cpython-313.pyc
 │   │   ├── role.py
-│   │   ├── roles_utils.py
 │   │   └── settings.py
 │   ├── roles
 │   │   ├── profiles
@@ -69,8 +68,10 @@
 │       │   ├── file_utils.cpython-313.pyc
 │       │   ├── font_utils.cpython-313.pyc
 │       │   ├── html_utils.cpython-313.pyc
+│       │   ├── roles_utils.cpython-313.pyc
 │       │   ├── ui_utils.cpython-313.pyc
 │       │   └── x11_utils.cpython-313.pyc
+│       ├── roles_utils.py
 │       ├── ui_utils.py
 │       └── x11_utils.py
 ├── assets
@@ -254,4 +255,4 @@
 ├── requirements.txt
 └── structure.txt
 
-45 directories, 210 files
+45 directories, 211 files
