@@ -11,7 +11,7 @@ import os
 from PyQt5.QtCore import Qt, QPoint
 from PyQt5.QtGui import QPainter, QColor, QBrush, QRegion, QPolygon, QPen, QFontDatabase, QFont
 from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QScrollArea
-from ...utils import utils
+from ...utils import font_utils
 
 class InternalWindow(QWidget):
     def __init__(self, parent=None):
@@ -25,9 +25,9 @@ class InternalWindow(QWidget):
         self.content_label.setGeometry(self.rect())
         self.content_label.setStyleSheet("color: white; font-size: 20px; padding: 0px;")
 
-        # Use predator font from utils.py
+        # Use predator font from font_utils.py
         self.predator_font = None
-        self.predator_font = utils.loadPredatorFont()
+        self.predator_font = font_utils.loadPredatorFont()
         if self.predator_font:
             # Adjust the font size to 12 as it was before
             self.predator_font.setPointSize(12)

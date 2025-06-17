@@ -14,13 +14,22 @@ from ..tabs import wiki
 from ..tabs.news import News
 from ..tabs.tweaks import Tweaks
 from PyQt5.QtCore import Qt
-from ...utils import utils
+from ...utils import font_utils, html_utils, ui_utils
+
+
+def show_role_selection():
+    """
+    Show the role selection window.
+    """
+    role = Role()
+    role.show_role_selection_window()
+
 
 class ButtonContent:
 
     def __init__(self, internal_window):
         self.internal_window = internal_window
-        self.predator_font = utils.loadPredatorFont()
+        self.predator_font = font_utils.loadPredatorFont()
 
     def clearButtons(self):
         # Remove all button widgets from the internal window
@@ -33,7 +42,7 @@ class ButtonContent:
         # Clear previous buttons
         self.clearButtons()
         # Load and format the HTML content
-        text = utils.loadHTMLContent('../../assets/html', 'welcome.html', self.predator_font.family())
+        text = html_utils.loadHTMLContent('../../assets/html', 'welcome.html', self.predator_font.family())
 
         # Update the content of the internal window
         self.internal_window.updateContent(text)
@@ -42,7 +51,7 @@ class ButtonContent:
 
         self.clearButtons()  # Clear previous buttons
         # Load and format the HTML content
-        text = utils.loadHTMLContent('../../assets/html', 'developers.html', self.predator_font.family())
+        text = html_utils.loadHTMLContent('../../assets/html', 'developers.html', self.predator_font.family())
         # Update the content of the internal window
         self.internal_window.updateContent(text)
 
@@ -101,7 +110,7 @@ class ButtonContent:
             for role_name in role.get_available_roles():
                 role_button = QPushButton()
                 role_button.setFixedSize(240, 100)
-                role_button.setMask(utils.contentButtonMask())
+                role_button.setMask(ui_utils.contentButtonMask())
                 role_button.setStyleSheet("""
                     QPushButton {
                         background-color: #00B0C8;
@@ -132,7 +141,7 @@ class ButtonContent:
 
                 # Connect the button to a function that loads the role content or shows the role selection window
                 if role_name == "Select a Role":
-                    role_button.clicked.connect(self.show_role_selection)
+                    role_button.clicked.connect(show_role_selection)
                 else:
                     role_button.clicked.connect(lambda checked, name=role_name: self.load_specific_role(name))
 
@@ -180,7 +189,7 @@ class ButtonContent:
             # Add a back button
             back_button = QPushButton()
             back_button.setFixedSize(240, 100)
-            back_button.setMask(utils.contentButtonMask())
+            back_button.setMask(ui_utils.contentButtonMask())
             back_button.setStyleSheet("""
                 QPushButton {
                     background-color: #00B0C8;
@@ -219,10 +228,3 @@ class ButtonContent:
 
     def displayWikiContent(self):
         wiki.displayWikiContent(self.internal_window, self.predator_font)
-
-    def show_role_selection(self):
-        """
-        Show the role selection window.
-        """
-        role = Role()
-        role.show_role_selection_window()

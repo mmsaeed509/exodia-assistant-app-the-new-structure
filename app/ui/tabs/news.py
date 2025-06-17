@@ -13,7 +13,7 @@ import threading
 from urllib.request import urlopen, Request
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QScrollArea
 from PyQt5.QtCore import Qt
-from ...utils import utils
+from ...utils import font_utils
 
 class News(QWidget):
     def __init__(self, parent=None):
@@ -24,7 +24,7 @@ class News(QWidget):
 
         # Use predator font from utils.py
         self.predator_font = None
-        self.predator_font = utils.loadPredatorFont()
+        self.predator_font = font_utils.loadPredatorFont()
         if self.predator_font:
             # Adjust the font size to 12 as it was before
             self.predator_font.setPointSize(12)

@@ -12,9 +12,7 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QPushButton, QLab
 from PyQt5.QtCore import Qt, QUrl
 from PyQt5.QtGui import QDesktopServices
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import utils
-from . import roles_utils
-
+from ..utils import font_utils, html_utils, roles_utils
 
 def open_url(url):
     """
@@ -37,9 +35,9 @@ class Role(QWidget):
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.setAttribute(Qt.WA_TranslucentBackground)  # Make the background transparent
 
-        # Use predator font from utils.py
+        # Use predator font from font_utils.py
         self.predator_font = None
-        self.predator_font = utils.loadPredatorFont()
+        self.predator_font = font_utils.loadPredatorFont()
         if self.predator_font:
             # Adjust the font size to 12 as it was before
             self.predator_font.setPointSize(12)
@@ -100,12 +98,12 @@ class Role(QWidget):
         # If no role is specified, load the index page
         if role_name is None or role_name not in self.roles:
             # return text
-            return utils.loadHTMLContent('./HTML-files', 'displayRoleContent.html', self.predator_font.family())
+            return html_utils.loadHTMLContent('../../assets/html', 'role.html', self.predator_font.family())
 
         # If the role is "Select a Role", show the role selection window
         elif role_name == "Select a Role":
             self.show_role_selection_window()
-            return utils.loadHTMLContent('./HTML-files', 'displayRoleContent.html', self.predator_font.family())
+            return html_utils.loadHTMLContent('../../assets/html', 'role.html', self.predator_font.family())
 
         # If the role is "Create a Role", use the display_create_role method if internal_window is available
         elif role_name == "Create a Role":
@@ -368,7 +366,7 @@ class Role(QWidget):
         self.internal_window.layout().addWidget(top_widget)
 
         # Create the content for the "Explore Role" section
-        html_content = utils.loadHTMLContent('./HTML-files', 'ExploreRole.html', self.predator_font.family())
+        html_content = html_utils.loadHTMLContent('../../assets/html', 'ExploreRole.html', self.predator_font.family())
 
         # Create a label for the content
         content_label = QLabel()
@@ -482,7 +480,7 @@ class Role(QWidget):
         top_layout.addWidget(back_button, alignment=Qt.AlignLeft)
 
         # Add a title label
-        selected_role = roles_utils.load_role_from_yaml() or "Default"
+        selected_role = roles_utils.load_role_from_yaml() or "DevOps"
         title_label = QLabel(f"Manage Your {selected_role} Role")
         title_label.setFont(self.predator_font)
         title_label.setStyleSheet(
@@ -578,8 +576,10 @@ class Role(QWidget):
 
         if selected_role:
             # Construct the path to the roadmap.html file for the selected role
-            roadmap_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
-                                       f"profiles/{selected_role}/roadmap.html")
+            config_dir = os.path.expanduser("~/.config/exodia-assistant")
+            os.makedirs(config_dir, exist_ok=True)  # Ensure directory exists
+            roadmap_path = os.path.join(config_dir, f"profiles/{selected_role}/roadmap.html")
+            # print(roadmap_path)
 
             # Check if the roadmap.html file exists
             if os.path.exists(roadmap_path):
@@ -691,10 +691,12 @@ class Role(QWidget):
 
         if selected_role:
             # Construct the path to the materials.html file for the selected role
-            materials_html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
-                                       f"profiles/{selected_role}/materials.html")
-            materials_md_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
-                                       f"profiles/{selected_role}/materials.md")
+            config_dir = os.path.expanduser("~/.config/exodia-assistant")
+            os.makedirs(config_dir, exist_ok=True)  # Ensure directory exists
+            materials_html_path = os.path.join(config_dir, f"profiles/{selected_role}/materials.html")
+            materials_md_path = os.path.join(config_dir, f"profiles/{selected_role}/materials.md")
+            # print(materials_html_path)
+            # print(materials_md_path)
 
             # Check if the materials.html file exists
             if os.path.exists(materials_html_path):

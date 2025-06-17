@@ -2,9 +2,9 @@ import os
 import shutil
 import getpass
 from PyQt5.QtCore import Qt, QPoint
-from PyQt5.QtGui import QPainter, QBrush, QColor, QFont, QFontDatabase, QPen, QPolygon, QRegion
+from PyQt5.QtGui import QPainter, QBrush, QColor, QPen, QPolygon, QRegion
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QTabWidget, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QCheckBox, QComboBox, QSlider, QScrollArea, QFrame, QFileDialog, QMessageBox
-import utils
+from ..utils import font_utils
 
 
 def createButtonMask():
@@ -77,7 +77,7 @@ class SettingWindow(QMainWindow):
         return QRegion(polygon)
 
     def loadCustomFont(self):
-        self.custom_font = utils.loadPredatorFont()
+        self.custom_font = font_utils.loadPredatorFont()
         if self.custom_font:
             self.custom_font.setPointSize(20)
 

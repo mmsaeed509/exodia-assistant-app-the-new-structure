@@ -10,7 +10,7 @@
 from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtGui import QPainter, QColor, QRegion, QPolygon, QPen, QFont, QFontDatabase
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout
-from ...utils import utils
+from ...utils import font_utils
 
 class CustomButton(QPushButton):
     def __init__(self, text, points, x, y, width, height, callback, color="#0E1218", border_color="#00B0C8",
@@ -40,8 +40,8 @@ class CustomButton(QPushButton):
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setMask(QRegion(self.original_points))
 
-        # Use predator font from utils.py
-        self.predator_font = utils.loadPredatorFont()
+        # Use predator font from font_utils.py
+        self.predator_font = font_utils.loadPredatorFont()
         if self.predator_font:
             # Adjust font size to 12 as it was before
             self.predator_font.setPointSize(12)

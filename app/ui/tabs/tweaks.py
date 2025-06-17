@@ -9,7 +9,7 @@
 
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QScrollArea, QLineEdit, QFrame
 from PyQt5.QtCore import Qt
-import utils
+from ...utils import font_utils, html_utils, ui_utils
 
 class Tweaks(QWidget):
     def __init__(self, parent=None):
@@ -19,9 +19,9 @@ class Tweaks(QWidget):
         self.setGeometry(0, 0, 800, 600)
         self.setAttribute(Qt.WA_TranslucentBackground)  # Make the background transparent
 
-        # Use predator font from utils.py
+        # Use predator font from font_utils.py
         self.predator_font = None
-        self.predator_font = utils.loadPredatorFont()
+        self.predator_font = font_utils.loadPredatorFont()
         if self.predator_font:
             # Adjust the font size to 12 as it was before
             self.predator_font.setPointSize(12)
@@ -89,7 +89,7 @@ class Tweaks(QWidget):
             """Creates a custom button widget with word-wrapped text and a custom shape."""
             button = QPushButton()
             button.setFixedSize(240, 100)
-            button.setMask(utils.contentButtonMask())
+            button.setMask(ui_utils.contentButtonMask())
             button.setStyleSheet(
                 f"""
                 QPushButton {{
@@ -214,7 +214,7 @@ class Tweaks(QWidget):
 
             # Load the overview HTML content
             try:
-                html_content = utils.loadHTMLContent("HTML-files", html_file, self.predator_font.family())
+                html_content = html_utils.loadHTMLContent("html", html_file, self.predator_font.family())
                 # self.internal_window.updateContent(html_content)
             except Exception as e:
                 print(f"Error loading HTML content: {e}")

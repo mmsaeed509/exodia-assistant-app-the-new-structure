@@ -7,31 +7,16 @@
 #                                   #
 #####################################
 
-import os
-from Xlib import display
-from Xlib.Xatom import STRING
 from PyQt5.QtCore import Qt, QPoint, QRect
-from PyQt5.QtGui import QPainter, QBrush, QPolygon, QColor, QRegion, QFont
-from PyQt5.QtGui import QLinearGradient, QPen, QFontDatabase, QPainterPath
+from PyQt5.QtGui import QPainter, QBrush, QPolygon, QColor, QRegion
+from PyQt5.QtGui import QLinearGradient, QPen, QPainterPath
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QWidget
 from ..windows.internal_window import InternalWindow
 from ..widgets.profile_pic import ProfilePicture
 from ..widgets.side_buttons_panel import CustomButtonPanel  # Import the button panel
 from ..widgets.side_buttons_panel_content import ButtonContent  # Import the ButtonContent class
 from ...core.settings import SettingWindow
-from ...utils import utils
-
-
-# Function to set WM_CLASS for the window
-def set_wm_class(win_id, instance_name, class_name):
-    # Set the WM_CLASS property for a window.
-    disp = display.Display()
-    window = disp.create_resource_object('window', win_id)
-    wm_class_atom = disp.intern_atom('WM_CLASS')
-    value = f'{instance_name}\0{class_name}\0'.encode('utf-8')
-    window.change_property(wm_class_atom, STRING, 8, value)
-    disp.flush()
-
+from app.utils import x11_utils, font_utils, ui_utils
 
 # Function to create a mask for the custom window shape
 def createMask():
@@ -71,13 +56,11 @@ class CustomShapeWindow(QMainWindow):
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         # Make the window transparent
         self.setAttribute(Qt.WA_TranslucentBackground)
-        # Use predator font from utils.py
-        self.predator_font = utils.loadPredatorFont()
+        # Use predator font from font_utils.py
+        self.predator_font = font_utils.loadPredatorFont()
         if self.predator_font:
             # Adjust the font size to 12 as it was before
             self.predator_font.setPointSize(28)
-        # Load buttons fonts
-        self.loadButtonFont()
         # Define the custom shape
         self.setMask(createMask())
         # Add buttons
@@ -103,7 +86,7 @@ class CustomShapeWindow(QMainWindow):
     def set_wm_class(self):
         # Get the native window ID
         win_id = self.winId().__int__()
-        set_wm_class(win_id, "exodiaos-assistant", "ExodiaOS Assistant")
+        x11_utils.set_wm_class(win_id, "exodiaos-assistant", "ExodiaOS Assistant")
 
     # Function to handle settings button click
     def openSettings(self):
@@ -112,16 +95,6 @@ class CustomShapeWindow(QMainWindow):
             self.setting_window.show()
         except Exception as e:
             print(f"Error initializing SettingWindow: {e}")
-
-    def loadButtonFont(self):
-        # Load the font from the Fonts directory
-        font_path = os.path.join(os.path.dirname(__file__), '../../../assets/fonts', 'Squares-Bold-Italic.otf')
-        font_id = QFontDatabase.addApplicationFont(font_path)
-        if font_id == -1:
-            print("Failed to load button font.")
-        else:
-            font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
-            self.button_font = QFont(font_family, 25, QFont.Bold)
 
     def addButtons(self):
         # Create a QWidget to hold the buttons
@@ -135,21 +108,21 @@ class CustomShapeWindow(QMainWindow):
         # self.setGeometry(x, y, width, height)
         self.settings_button.setGeometry(0, 10, 40, 40)
         self.settings_button.clicked.connect(self.openSettings)  # Connect button to openSettings method
-        self.settings_button.setFont(self.button_font)
+        self.settings_button.setFont(self.predator_font)
 
         self.minimize_button = QPushButton('—', button_widget)
         # Set the geometry (position and size) of the internal window
         # self.setGeometry(x, y, width, height)
         self.minimize_button.setGeometry(50, 10, 40, 40)
         self.minimize_button.clicked.connect(self.minimizeWindow)
-        self.minimize_button.setFont(self.button_font)
+        self.minimize_button.setFont(self.predator_font)
 
         self.close_button = QPushButton('X', button_widget)
         # Set the geometry (position and size) of the internal window
         # self.setGeometry(x, y, width, height)
         self.close_button.setGeometry(100, 10, 40, 40)
         self.close_button.clicked.connect(self.closeWindow)
-        self.close_button.setFont(self.button_font)
+        self.close_button.setFont(self.predator_font)
 
         # Set button styles (optional)
         for button in [self.settings_button, self.minimize_button, self.close_button]:
@@ -241,16 +214,6 @@ class CustomShapeWindow(QMainWindow):
         # Set the gradient brush for the trapezoid background
         painter.setBrush(QBrush(gradient))
         painter.drawPath(path)
-
-        # Set the 1st border for the trapezoid
-        # border_pen = QPen(QColor("#00B0C8"), 3)  # Create a pen with border color and width
-        # painter.setPen(border_pen)
-        # painter.drawPath(path)  # Draw the trapezoid border
-
-        # Set the 2nd border for the trapezoid
-        # border_pen = QPen(QColor("#121212"), 2)  # Create a pen with border color and width
-        # painter.setPen(border_pen)
-        # painter.drawPath(path)  # Draw the trapezoid border
 
         # Center the text horizontally
         text = "Exodia Assistant"

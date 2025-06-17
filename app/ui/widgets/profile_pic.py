@@ -8,7 +8,7 @@
 #####################################
 
 import os
-from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPainter, QColor, QRegion, QPixmap, QPen
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QPainterPath

@@ -45,11 +45,11 @@ exodia-assistant/
 │   │   └── __init__.py
 │   │
 │   └── utils/                  # Common helpers
-│       ├── font_loader.py
-│       ├── html_loader.py
+│       ├── font_utils.py
+│       ├── html_utils.py
 │       ├── file_utils.py
 │       ├── x11_utils.py
-│       └── ui_helpers.py
+│       └── ui_utils.py
 │
 └── tests/                      # Optional: test modules
 ```

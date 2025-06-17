@@ -1,0 +1,257 @@
+.
+├── app
+│   ├── core
+│   │   ├── __pycache__
+│   │   │   ├── role.cpython-313.pyc
+│   │   │   ├── roles_utils.cpython-313.pyc
+│   │   │   └── settings.cpython-313.pyc
+│   │   ├── role.py
+│   │   ├── roles_utils.py
+│   │   └── settings.py
+│   ├── roles
+│   │   ├── profiles
+│   │   │   ├── Backend
+│   │   │   │   ├── materials.html
+│   │   │   │   ├── roadmap.html
+│   │   │   │   ├── roadmap.png
+│   │   │   │   └── tools.yaml
+│   │   │   ├── DevOps
+│   │   │   │   ├── DevOpsBurger.jpg
+│   │   │   │   ├── docker.sh
+│   │   │   │   ├── materials.html
+│   │   │   │   ├── roadmap.html
+│   │   │   │   ├── roadmap.png
+│   │   │   │   ├── tools.png
+│   │   │   │   └── tools.yaml
+│   │   │   ├── Frontend
+│   │   │   │   ├── materials.html
+│   │   │   │   ├── roadmap.html
+│   │   │   │   ├── roadmap.png
+│   │   │   │   └── tools.yaml
+│   │   │   └── MLOps
+│   │   │       ├── materials.html
+│   │   │       ├── roadmap.html
+│   │   │       ├── roadmap.png
+│   │   │       └── tools.yaml
+│   │   └── role.yaml
+│   ├── ui
+│   │   ├── keybinding
+│   │   │   ├── keybinding.py
+│   │   │   └── __pycache__
+│   │   │       └── keybinding.cpython-313.pyc
+│   │   ├── tabs
+│   │   │   ├── news.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── news.cpython-313.pyc
+│   │   │   │   ├── tweaks.cpython-313.pyc
+│   │   │   │   └── wiki.cpython-313.pyc
+│   │   │   ├── tweaks.py
+│   │   │   └── wiki.py
+│   │   ├── widgets
+│   │   │   ├── profile_pic.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── profile_pic.cpython-313.pyc
+│   │   │   │   ├── side_buttons_panel_content.cpython-313.pyc
+│   │   │   │   └── side_buttons_panel.cpython-313.pyc
+│   │   │   ├── side_buttons_panel_content.py
+│   │   │   └── side_buttons_panel.py
+│   │   └── windows
+│   │       ├── internal_window.py
+│   │       ├── main_window.py
+│   │       └── __pycache__
+│   │           ├── internal_window.cpython-313.pyc
+│   │           └── main_window.cpython-313.pyc
+│   └── utils
+│       ├── file_utils.py
+│       ├── font_utils.py
+│       ├── html_utils.py
+│       ├── __pycache__
+│       │   ├── file_utils.cpython-313.pyc
+│       │   ├── font_utils.cpython-313.pyc
+│       │   ├── html_utils.cpython-313.pyc
+│       │   ├── ui_utils.cpython-313.pyc
+│       │   └── x11_utils.cpython-313.pyc
+│       ├── ui_utils.py
+│       └── x11_utils.py
+├── assets
+│   ├── fonts
+│   │   ├── Squares-Black-Italic.otf
+│   │   ├── Squares-Black.otf
+│   │   ├── Squares-Bold-Italic.otf
+│   │   ├── Squares-Bold.otf
+│   │   ├── Squares-Italic.otf
+│   │   ├── Squares-Light-italic.otf
+│   │   ├── Squares-Light.otf
+│   │   ├── Squares-Regular.otf
+│   │   ├── Squares-Thin-Italic.otf
+│   │   └── Squares-Thin.otf
+│   ├── html
+│   │   ├── developers.html
+│   │   ├── ExploreRole.html
+│   │   ├── HowtoCreateYourOwnRole.html
+│   │   ├── Keybinding
+│   │   │   ├── BSPWM.html
+│   │   │   ├── DWM.html
+│   │   │   └── I3WM.html
+│   │   ├── News.html
+│   │   ├── role.html
+│   │   ├── tips
+│   │   │   ├── Adding-Music.html
+│   │   │   ├── bspwm-themes.html
+│   │   │   ├── Change-Fonts.html
+│   │   │   ├── change-theme-and-icons.html
+│   │   │   ├── Changing-SDDM-User-Picture.html
+│   │   │   ├── Create-Your-Own-Theme.html
+│   │   │   ├── Fix-Cava-Module.html
+│   │   │   ├── pacman-tips.html
+│   │   │   ├── PGP-signature-Error.html
+│   │   │   ├── Set-Keyboard-Layout.html
+│   │   │   ├── Setup-Custom-Monitors-Config.html
+│   │   │   ├── Setup-Polybar-Modules.html
+│   │   │   └── unable-to-lock-database.html
+│   │   ├── tweaks.html
+│   │   └── welcome.html
+│   ├── icons
+│   │   ├── exodia-blue.png
+│   │   ├── exodia-cyan.png
+│   │   ├── exodia-green.png
+│   │   ├── exodia-magenta.png
+│   │   ├── exodia.png
+│   │   ├── exodia-red.png
+│   │   ├── exodia-violet.png
+│   │   ├── exodia-yellow.png
+│   │   ├── logos.gif
+│   │   └── Predator.png
+│   └── imgs
+│       ├── desktop.png
+│       ├── FreePalestine.png
+│       ├── Keybinding
+│       │   ├── bspwm.png
+│       │   ├── dwm.png
+│       │   ├── i3wm.png
+│       │   └── Note.png
+│       ├── Showcase
+│       │   ├── 10.png
+│       │   ├── 1.png
+│       │   ├── 2.png
+│       │   ├── 3.png
+│       │   ├── 4.png
+│       │   ├── 5.png
+│       │   ├── 6.png
+│       │   ├── 7.png
+│       │   ├── 8.png
+│       │   ├── 9.png
+│       │   ├── bspwm.gif
+│       │   ├── dwm.gif
+│       │   └── I3WM.gif
+│       ├── team
+│       │   ├── Austin.png
+│       │   ├── Budas.png
+│       │   ├── DonSom3a.png
+│       │   ├── Joe.png
+│       │   ├── NahianAdnan.png
+│       │   └── Ozil.png
+│       └── tips
+│           ├── AddingMusic
+│           │   └── preview.png
+│           ├── BSPWMThemes
+│           │   ├── 10.png
+│           │   ├── 11.png
+│           │   ├── 12.png
+│           │   ├── 13.png
+│           │   ├── 14.png
+│           │   ├── 15.png
+│           │   ├── 1.png
+│           │   ├── 2.png
+│           │   ├── 3.png
+│           │   ├── 4.png
+│           │   ├── 5.png
+│           │   ├── 6.png
+│           │   ├── 7.png
+│           │   ├── 8.png
+│           │   └── 9.png
+│           ├── cava
+│           │   ├── 1.png
+│           │   └── 2.png
+│           ├── ChangeFonts
+│           │   ├── 1.png
+│           │   ├── 2.png
+│           │   ├── 3.png
+│           │   ├── 4.png
+│           │   ├── 5.png
+│           │   └── 6.png
+│           ├── ChangeThemeAndIcons
+│           │   └── 1.png
+│           ├── CreateCustomTheme
+│           │   ├── 1.png
+│           │   ├── 2.png
+│           │   ├── AddColorScheme.png
+│           │   ├── GeneratedColorScheme.png
+│           │   ├── Hint.png
+│           │   ├── polybar-1.png
+│           │   ├── polybar-2.png
+│           │   ├── polybar-2.png~
+│           │   ├── polybar-3.png
+│           │   ├── preview.png
+│           │   └── warning.png
+│           ├── github
+│           │   ├── 1.png
+│           │   ├── 2.png
+│           │   ├── 3.png
+│           │   ├── 4.png
+│           │   ├── 5.png
+│           │   ├── 6.png
+│           │   └── github.png
+│           ├── keyboardLayouts
+│           │   ├── 0.png
+│           │   ├── ar.png
+│           │   └── en.png
+│           ├── monitors
+│           │   ├── 1.png
+│           │   ├── 2.png
+│           │   ├── 3.png
+│           │   ├── 4.png
+│           │   └── Note.png
+│           ├── multiBars
+│           │   ├── 0.png
+│           │   ├── 1.png
+│           │   ├── 2.png
+│           │   ├── 3.png
+│           │   ├── 4.png
+│           │   ├── 5.png
+│           │   ├── 6.png
+│           │   └── 7.png
+│           ├── sddm
+│           │   ├── 0.png
+│           │   ├── 1.png
+│           │   ├── 2.png
+│           │   ├── 3.png
+│           │   └── 4.png
+│           └── weather
+│               ├── 0.png
+│               ├── 1.png
+│               ├── 2.png
+│               ├── 3.png
+│               ├── 4.png
+│               ├── 5.png
+│               └── 6.png
+├── config.py
+├── git-push.sh
+├── main.py
+├── __pycache__
+│   ├── internal_window.cpython-313.pyc
+│   ├── keybinding.cpython-313.pyc
+│   ├── main_window.cpython-313.pyc
+│   ├── news.cpython-313.pyc
+│   ├── profile_pic.cpython-313.pyc
+│   ├── settings.cpython-313.pyc
+│   ├── side_buttons_panel_content.cpython-313.pyc
+│   ├── side_buttons_panel.cpython-313.pyc
+│   ├── tweaks.cpython-313.pyc
+│   ├── utils.cpython-313.pyc
+│   └── wiki.cpython-313.pyc
+├── README.md
+├── requirements.txt
+└── structure.txt
+
+45 directories, 210 files

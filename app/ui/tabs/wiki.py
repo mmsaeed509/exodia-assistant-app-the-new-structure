@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QScrollArea, QLineEdit, QFrame
-import utils
+from ...utils import font_utils, html_utils, ui_utils
 
 def displayWikiContent(internal_window, predator_font):
     """
@@ -12,7 +12,7 @@ def displayWikiContent(internal_window, predator_font):
     """
     text = ""
     # Base directory for HTML files
-    html_dir = "./HTML-files/tips"
+    html_dir = "../../assets/html/tips"
 
     def clearLayout():
         """Clears the layout of the internal window."""
@@ -26,7 +26,7 @@ def displayWikiContent(internal_window, predator_font):
         """Creates a custom button widget with word-wrapped text and a custom shape."""
         button = QPushButton()
         button.setFixedSize(240, 100)
-        button.setMask(utils.contentButtonMask())
+        button.setMask(ui_utils.contentButtonMask())
         button.setStyleSheet(
             f"""
             QPushButton {{
@@ -226,7 +226,7 @@ def displayWikiContent(internal_window, predator_font):
             internal_window.layout().addWidget(top_widget)
 
             # Load the HTML content
-            html_content = utils.loadHTMLContent(html_dir, html_file, predator_font.family())
+            html_content = html_utils.loadHTMLContent(html_dir, html_file, predator_font.family())
 
             # Use the scroll area from the internal window
             content_label = QLabel()
