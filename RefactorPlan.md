@@ -1,30 +1,3 @@
-Read file: main.py
-Ran tool
-Ran tool
-Ran tool
-Ran tool
-Ran tool
-Ran tool
-Ran tool
-Ran tool
-Ran tool
-Ran tool
-Read file: app/core/role.py
-Read file: app/core/settings.py
-Read file: app/ui/widgets/side_buttons_panel.py
-Read file: app/ui/windows/main_window.py
-Read file: app/utils/roles_utils.py
-Read file: app/utils/html_utils.py
-Read file: config.py
-Read file: requirements.txt
-Read file: README.md
-Read file: structure.txt
-Read file: app/ui/widgets/side_buttons_panel_content.py
-Read file: app/ui/windows/internal_window.py
-Here is a comprehensive **architectural review** and a **refactor proposal** for your Exodia Assistant app, based on your codebase and clean code principles. This is formatted as a markdown document, ready to be added to your repo.
-
----
-
 # 🏗️ Exodia Assistant: Architectural Review & Refactor Plan
 
 ## 1. Architectural Review
