@@ -17,7 +17,8 @@ from typing import Final
 
 # App Info
 APP_NAME: Final[str]    = "Exodia OS Assistant"
-APP_VERSION: Final[str] = "4.0.1"
+APP_VERSION: Final[str] = "4.0.2"
+APP_RELEASE: Final[str] = "2"
 
 # Paths
 BASE_DIR: Final[str]   = os.path.dirname(os.path.abspath(__file__))
