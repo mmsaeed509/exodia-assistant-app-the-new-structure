@@ -1,13 +1,4 @@
-IaaC:
-- name: Terraform
-  pkg: terraform
-  post-install: null
-  post-remove: null
-  pre-install: null
-  pre-remove: null
-  remove: null
-  status: UnInstalled
-configuration management:
+Configuration Management:
 - name: Ansible
   pkg: ansible
   post-install: null
@@ -15,8 +6,8 @@ configuration management:
   pre-install: null
   pre-remove: null
   remove: null
-  status: Installed
-containerization:
+  status: UnInstalled
+Containerization:
 - name: Docker
   pkg: docker
   post-install: null
@@ -57,3 +48,53 @@ containerization:
   pre-remove: null
   remove: null
   status: Installed
+IaaC:
+- name: Terraform
+  pkg: terraform
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: UnInstalled
+- name: Pulumi
+  pkg: pulumi
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: UnInstalled
+Orchestration (K8s):
+- name: Kubelet
+  pkg: kubelet
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: UnInstalled
+- name: Kubeadm
+  pkg: kubeadm
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: UnInstalled
+- name: Kubectl
+  pkg: kubectl
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: UnInstalled
+- name: MiniKube (Recom. install on VM or Docker)
+  pkg: minikube
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: UnInstalled
