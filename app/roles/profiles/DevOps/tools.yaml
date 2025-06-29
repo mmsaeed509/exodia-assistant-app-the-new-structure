@@ -1,6 +1,31 @@
+AWS:
+- name: AWS CLI
+  pkg: aws-cli
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: UnInstalled
+- name: AWS CLI V2
+  pkg: aws-cli-v2
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: UnInstalled
 Configuration Management:
 - name: Ansible
   pkg: ansible
+  post-install: null
+  post-remove: null
+  pre-install: null
+  pre-remove: null
+  remove: null
+  status: Installed
+- name: Nix
+  pkg: nix
   post-install: null
   post-remove: null
   pre-install: null

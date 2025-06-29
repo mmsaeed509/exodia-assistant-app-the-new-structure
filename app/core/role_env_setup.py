@@ -120,6 +120,25 @@ def create_setup_environment_tab(self, tab_widget):
     """)
     toolbar_layout.addWidget(search_bar)
 
+    # Tools Count Display
+    tools_count_label = QLabel("Tools: 0 Total | 0 Installed")
+    tools_count_label.setFont(self.predator_font)
+    tools_count_label.setStyleSheet(f"""
+        QLabel {{
+            color: #00B0C8;
+            font-family: '{font_family}';
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 15px;
+            background-color: #151A21;
+            border: 2px solid #00B0C8;
+            border-radius: 5px;
+            min-width: 200px;
+            text-align: center;
+        }}
+    """)
+    toolbar_layout.addWidget(tools_count_label)
+
     # Update Status Button
     update_status_button = QPushButton("Update Status")
     update_status_button.setFont(self.predator_font)
@@ -382,6 +401,12 @@ def create_setup_environment_tab(self, tab_widget):
                 tool_checkboxes = {}
                 category_tools_dict = {}
 
+                # Function to update tools count display
+                def update_tools_count():
+                    total_tools = len(tool_checkboxes)
+                    installed_tools = sum(1 for checkbox in tool_checkboxes.values() if checkbox.isChecked())
+                    tools_count_label.setText(f"Tools: {total_tools} Total | {installed_tools} Installed")
+
                 # Create category groups and tool checkboxes
                 for category, tools in tools_data.items():
                     # Create category group
@@ -546,6 +571,9 @@ def create_setup_environment_tab(self, tab_widget):
                             # Update the "Select All" checkbox
                             select_all_checkbox.setChecked(all(cb.isChecked() for cb in all_checkboxes.values()))
 
+                            # Update tools count
+                            update_tools_count()
+
                         tool_checkbox.toggled.connect(toggle_tool_state)
 
                     # Add the tools grid to the category layout
@@ -558,6 +586,7 @@ def create_setup_environment_tab(self, tab_widget):
                     def toggle_category(checked, cat=category, tools_checkboxes=category_tools_checkboxes):
                         for checkbox in tools_checkboxes:
                             checkbox.setChecked(checked)
+                        update_tools_count()
 
                     category_checkbox.toggled.connect(toggle_category)
                     category_checkbox.setChecked(all(cb.isChecked() for cb in category_tools_checkboxes))
@@ -568,9 +597,13 @@ def create_setup_environment_tab(self, tab_widget):
                 def toggle_all_tools(checked):
                     for checkbox in all_checkboxes.values():
                         checkbox.setChecked(checked)
+                    update_tools_count()
 
                 select_all_checkbox.toggled.connect(toggle_all_tools)
                 select_all_checkbox.setChecked(all(cb.isChecked() for cb in all_checkboxes.values()))
+
+                # Update initial count
+                update_tools_count()
 
                 # Connect Save button with enhanced error handling
                 def apply_changes():
